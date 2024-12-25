@@ -1,19 +1,29 @@
 {
-  "name": "auto-cli",
-  "version": "1.0.0",
+  "name": "song-cli",
+  "version": "0.0.1",
   "type": "commonjs",
   "main": "./dist/index.js",
   "bin": {
-    "auto-cli": "./dist/index.js"
+    "song": "bin/index.js"
   },
+  "files": [
+    "dist",
+    "bin",
+    "README.md"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c rollup.config.mjs --bundleConfigAsCjs"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "Vite",
+    "Vue3",
+    "TypeScript",
+    "Elemet-Plus"
+  ],
+  "author": "song",
   "license": "ISC",
-  "description": "",
+  "description": "Vue3+TypeScript脚手架模版",
   "devDependencies": {
     "@inquirer/prompts": "^3.2.0",
     "@rollup/plugin-commonjs": "^25.0.3",

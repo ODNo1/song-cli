@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    /* 基础配置 */
+    "target": "es2016",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    /* 类型检查 */
+    "strict": true,
+    "skipLibCheck": true,
+    /* 模块解析 */
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    /* 辅助函数配置 */
+    "importHelpers": true,
+    /* 实验性功能 */
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    /* 输出配置 */
+    "declaration": true,
+    "sourceMap": true
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}

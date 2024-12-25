@@ -1,0 +1,51 @@
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# IDE 和编辑器
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# 依赖目录
+node_modules/
+vendor/
+.env
+
+# 编译输出
+dist/
+build/
+out/
+target/
+
+# 日志文件
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 临时文件
+*.swp
+*.swo
+.tmp/
+temp/
+
+# 测试覆盖率
+coverage/
+
+# 本地配置文件
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 缓存文件
+.cache/
+.npm/
+.yarn/
+
+# 其他
+*.bak
+*.zip
+*.tar.gz 

@@ -1,5 +1,5 @@
 {
-  "name": "song-cli",
+  "name": "song_dev-cli",
   "version": "0.0.1",
   "type": "commonjs",
   "main": "./dist/index.js",

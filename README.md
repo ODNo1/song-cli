@@ -1,4 +1,4 @@
-# song-cli
+# song_dev-cli
 
 ![Npm 版本](https://img.shields.io/badge/song-cli_v0.0.1-blue)
 
@@ -13,7 +13,7 @@
 ## ⚙️ 安装
 
 ```bash
-npm install song-cli -g
+npm install song_dev-cli -g
 ```
 
 ## 💻 使用

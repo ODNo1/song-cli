@@ -14,5 +14,4 @@ export const log = {
     console.log(logSymbols.info, msg)
   },
 }
-
 export default log

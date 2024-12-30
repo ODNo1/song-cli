@@ -25,6 +25,10 @@ song create
 # 执行项目文件夹名称并选择模版创建新项目
 song create [projectName]
 
+# 更新脚手架到最新的版本
+song update
+
+
 # 查看脚手架版本
 song -v
 song -version

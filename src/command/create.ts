@@ -40,7 +40,6 @@ export const getNpmInfo = async (npmName: string) => {
 // npm 包提供了根据包名称查询包信息的接口, 我们在这里直接使用 axios 请求调用即可
 export const getNpmLatestVersion = async (name: string) => {
   const { data } = (await getNpmInfo(name)) as AxiosResponse
-  console.log(data)
   return data['dist-tags'].latest
 }
 

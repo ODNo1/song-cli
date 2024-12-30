@@ -13,6 +13,13 @@ const logger = createLogger({
   },
 })
 
+const figlet = require('figlet')
+
+const goodPrinter = async () => {
+  const data = await figlet('song_dev-cli')
+  console.log(chalk.rgb(40, 156, 193).visible(data))
+}
+
 const gitOptions: Partial<SimpleGitOptions> = {
   baseDir: process.cwd(), // 根目录
   binary: 'git',
@@ -32,9 +39,10 @@ export const clone = async (
     })
 
     // 下面就是一些相关的提示
+    goodPrinter()
     console.log()
     console.log(chalk.blueBright(`==================================`))
-    console.log(chalk.blueBright(`=== 欢迎使用 song_dev-cli 脚手架 ===`))
+    console.log(chalk.blueBright(`== 欢迎使用 song_dev-cli 脚手架 ==`))
     console.log(chalk.blueBright(`==================================`))
     console.log()
 

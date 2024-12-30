@@ -1,8 +1,9 @@
 import { Command } from 'commander'
-import create from './command/create'
 // .vesion 表示可以使用 -V --version 参数查看当前SDK版本
 // 我们直接使用 package.json 中的 version 即可
 import { version } from '../package.json'
+import create from './command/create'
+import { update } from './command/update'
 
 // 这里我们用 song 当作我的指令名称
 // 命令行中使用 song xxx 即可触发
@@ -14,9 +15,9 @@ program.version(version, '-v --version')
 
 program
   .command('update')
-  .description('更新 dawei 至最新版本')
+  .description('更新 song_dev 至最新版本')
   .action(async () => {
-    console.log('update command')
+    await update()
   })
 
 program

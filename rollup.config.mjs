@@ -29,5 +29,9 @@ export default defineConfig([
       }),
       terser(),
     ],
+    onwarn(warning, warn) {
+      if (warning.code === 'CIRCULAR_DEPENDENCY') return
+      warn(warning)
+    },
   },
 ])

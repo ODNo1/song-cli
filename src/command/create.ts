@@ -1,8 +1,12 @@
 import path from 'path'
 import fs from 'fs-extra'
+import { gt } from 'lodash'
+import axios, { type AxiosResponse } from 'axios'
 import { select, input } from '@inquirer/prompts'
 import { clone } from '../utils/clone'
 import log from '../utils/log'
+import { name, version } from '../../package.json'
+import chalk from 'chalk'
 
 export interface TemplateInfo {
   name: string // 项目名称
@@ -20,6 +24,40 @@ export const isOverwrite = async (fileName: string) => {
       { name: '取消', value: false },
     ],
   })
+}
+
+export const getNpmInfo = async (npmName: string) => {
+  const npmUrl = `https://registry.npmjs.org/${npmName}`
+  let res = {}
+  try {
+    res = await axios.get(npmUrl)
+  } catch (error) {
+    log.error(error instanceof Error ? error.message : String(error))
+  }
+  return res
+}
+
+// npm 包提供了根据包名称查询包信息的接口, 我们在这里直接使用 axios 请求调用即可
+export const getNpmLatestVersion = async (name: string) => {
+  const { data } = (await getNpmInfo(name)) as AxiosResponse
+  console.log(data)
+  return data['dist-tags'].latest
+}
+
+export const checkVersion = async (name: string, version: string) => {
+  const latestVersion = await getNpmLatestVersion(name)
+  const need = gt(latestVersion, version)
+  if (need) {
+    log.warning(
+      `检测到 song_dev 最新版:${chalk.blueBright(
+        latestVersion
+      )} 当前版本:${chalk.blueBright(version)} ~`
+    )
+    log.warning(
+      `可使用 ${chalk.yellow('pnpm')} install song_dev-cli@latest 更新 ~`
+    )
+  }
+  return need
 }
 
 // 这里保存了我写好了咱们的之前开发的模板
@@ -48,6 +86,9 @@ export default async function create(prjName?: string) {
       return // 不覆盖直接结束
     }
   }
+
+  // 检测版本更新
+  await checkVersion(name, version)
 
   // 我们需要将我们的 map 处理成 @inquirer/prompts select 需要的形式
   // 大家也可以封装成一个方法去处理

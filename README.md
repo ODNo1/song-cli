@@ -28,7 +28,6 @@ song create [projectName]
 # 更新脚手架到最新的版本
 song update
 
-
 # 查看脚手架版本
 song -v
 song -version
